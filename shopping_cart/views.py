@@ -81,7 +81,7 @@ def checkout(request):
             order.is_ordered = True
             order.save()
             messages.success(request, "Your order was successful!")
-            return redirect("accounts/profile")
+            return redirect(reverse("accounts/profile"))
 
         except stripe.error.CardError as e:
             messages.error(request, "There was a card error.")
